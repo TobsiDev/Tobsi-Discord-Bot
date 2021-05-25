@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const keepUp = require("./server");
 
-const prefix = '.';
+const prefix = '!';
 const fs = require('fs');
 
 // Find & checks for commands
