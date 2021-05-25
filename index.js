@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const keepUp = require("./server");
 
-const prefix = '.';
+const prefix = '!';
 const fs = require('fs');
 
 // Find & checks for commands
@@ -56,6 +56,9 @@ client.on('message', message => {
     }
     else if (command === 'youtube' || command === 'yt' || command === 'vid') {
         client.commands.get('youtube').execute(message, args, Discord, client);
+    }
+		else if (command === 'help' || command === 'h' || command === 'HELP') {
+        client.commands.get('help').execute(message, args, Discord, client);
     }
 });
 
