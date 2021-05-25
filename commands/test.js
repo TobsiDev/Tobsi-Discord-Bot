@@ -15,6 +15,8 @@ module.exports = {
             .setImage('https://images.emojiterra.com/google/android-11/512px/1f525.png')
             .setFooter('I cant do a lot.');
 
+
+
         message.channel.send(`Hello. Im ${client.user.tag}`);
         message.channel.send(newEmbed);
 
