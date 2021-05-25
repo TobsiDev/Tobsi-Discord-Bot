@@ -17,6 +17,7 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log(`Bot ( ${client.user.tag} ) is Online.`);
+
 });
 
 client.on('message', message => {
@@ -41,14 +42,17 @@ client.on('message', message => {
     else if (command === 'test') {
         client.commands.get('test').execute(message, args, Discord, client);
     }
-    else if (command === 'clear') {
+    else if (command === 'clear' || command === 'purge' || command === 'pur' || command === 'cls') {
         client.commands.get('clear').execute(message, args, Discord, client);
     }
-    else if (command === 'kick') {
+    else if (command === 'kick' || command === 'k') {
         client.commands.get('kick').execute(message, args, Discord, client);
     }
-    else if (command === 'ban') {
+    else if (command === 'ban' || command === 'b') {
         client.commands.get('ban').execute(message, args, Discord, client);
+    }
+    else if (command === 'setup' || command === 's' || command === 'S') {
+        client.commands.get('setup').execute(message, args, Discord, client);
     }
 });
 
@@ -56,4 +60,3 @@ keepUp();
 
 const myDiscordToken = process.env['DISCORD-TOKEN']
 client.login(myDiscordToken);
-
