@@ -5,7 +5,7 @@ module.exports = {
     execute(message, args) {
 
         const argument = args;
- 
+
         console.log("msg: " + message);
         console.log("args: " + args);
 
@@ -14,7 +14,7 @@ module.exports = {
 
         if (message.member.roles.cache.some(r => r.name === "Super")) {
             if (typeof wantRole !== 'undefined') {
-                message.channel.send('you have: ' + role + '\nRole removed from user!');
+                message.channel.send(`you have removed the role ( ${argument} ) from USER`);
                 message.member.roles.remove(wantRole).catch(console.error);
             }
             else {

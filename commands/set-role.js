@@ -14,7 +14,7 @@ module.exports = {
 
         if (message.member.roles.cache.some(r => r.name === "Super")) {
             if (typeof wantRole !== 'undefined') {
-                message.channel.send('you have: ' + role + '\nYou got a new role! => ' + wantRole);
+                message.channel.send(`You have given the role ( ${argument} ) to USER`);
                 message.member.roles.add(wantRole).catch(console.error);
             }
             else {

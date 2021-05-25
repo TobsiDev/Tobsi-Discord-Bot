@@ -26,8 +26,8 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'fuck-you') {
-        client.commands.get('fuck-you').execute(message, args);
+    if (command === 'd') {
+        client.commands.get('d').execute(message, args);
     }
     else if (command === 'set-role') {
         client.commands.get('set-role').execute(message, args);
@@ -35,8 +35,11 @@ client.on('message', message => {
     else if (command === 'rm-role') {
         client.commands.get('rm-role').execute(message, args);
     }
+    else if (command === 'at') {
+        client.commands.get('at').execute(message, args);
+    }
     else if (command === 'test') {
-        client.commands.get('test').execute(message, args);
+        client.commands.get('test').execute(message, args, Discord, client);
     }
 });
 
