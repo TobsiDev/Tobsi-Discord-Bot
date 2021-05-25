@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const keepUp = require("./server");
 
-const prefix = '!';
+const prefix = '.';
 const fs = require('fs');
 
 // Find & checks for commands
@@ -41,9 +41,19 @@ client.on('message', message => {
     else if (command === 'test') {
         client.commands.get('test').execute(message, args, Discord, client);
     }
+    else if (command === 'clear') {
+        client.commands.get('clear').execute(message, args, Discord, client);
+    }
+    else if (command === 'kick') {
+        client.commands.get('kick').execute(message, args, Discord, client);
+    }
+    else if (command === 'ban') {
+        client.commands.get('ban').execute(message, args, Discord, client);
+    }
 });
 
 keepUp();
 
 const myDiscordToken = process.env['DISCORD-TOKEN']
 client.login(myDiscordToken);
+
