@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const keepUp = require("./server");
 
-const prefix = '!';
+const prefix = '.';
 const fs = require('fs');
 
 // Find & checks for commands
@@ -54,9 +54,13 @@ client.on('message', message => {
     else if (command === 'setup' || command === 's' || command === 'S') {
         client.commands.get('setup').execute(message, args, Discord, client);
     }
+    else if (command === 'youtube' || command === 'yt' || command === 'vid') {
+        client.commands.get('youtube').execute(message, args, Discord, client);
+    }
 });
 
 keepUp();
 
 const myDiscordToken = process.env['DISCORD-TOKEN']
 client.login(myDiscordToken);
+
