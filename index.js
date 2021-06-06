@@ -77,7 +77,7 @@ client.on('message', message => {
 
 keepUp();
 
-const myDiscordToken = process.env['DISCORD-TOKEN'];
+const myDiscordToken = process.env.DISCORD_TOKEN; // process.env['DISCORD-TOKEN']; replit.com
 client.login(myDiscordToken);
 
 /*
