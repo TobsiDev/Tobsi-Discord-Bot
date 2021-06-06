@@ -14,6 +14,7 @@ module.exports = {
 				{ name: '** - Kick someone**', value: 'Kick: Use !kick @User'},
 				{ name: '**Normal Commands**', value: 'All the normal commands everyone can use:'},
 				{ name: '** - YouTube**', value: 'Watch YouTube with your friends: Use !youtube / !yt / !vid'},
+				{ name: '** - South Park Quote**', value: 'Get a random Quote from the tv show, South Park: Use !southpark / !sp / !SOUTHPARK'},
 				{ name: '**TODO Commands**', value: 'NOT IMPLEMENTET YET:'}
 			)
 			.setFooter('I cant do a lot.');
