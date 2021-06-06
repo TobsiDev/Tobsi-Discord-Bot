@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const keepUp = require("./server");
 
-const prefix = '!';
+
+var prefix = [".", ">"];
 const fs = require('fs');
 
 // Find & checks for commands
@@ -21,10 +22,13 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) {
-        return;
+    if (!message.content.startsWith(prefix[0]) || message.author.bot) {
+        if (!message.content.startsWith(prefix[1]) || message.author.bot) {
+
+            return;
+        }
     }
-    const args = message.content.slice(prefix.length).split(/ +/);
+    const args = message.content.slice(prefix[0].length).split(/ +/);
     const command = args.shift().toLowerCase();
 
     if (command === 'd') {
@@ -57,13 +61,32 @@ client.on('message', message => {
     else if (command === 'youtube' || command === 'yt' || command === 'vid') {
         client.commands.get('youtube').execute(message, args, Discord, client);
     }
-		else if (command === 'help' || command === 'h' || command === 'HELP') {
+    else if (command === 'help' || command === 'h' || command === 'HELP') {
         client.commands.get('help').execute(message, args, Discord, client);
     }
+    else if (command === 'quote' || command === 'q' || command === 'QUOTE') {
+        client.commands.get('quote').execute(message, args, Discord, client, Quoter);
+    }
+    else if (command === 'southpark' || command === 'sp' || command === 'SOUTHPARK') {
+        client.commands.get('spq').execute(message, args, Discord, client);
+    }
+    /*else if (command === 'southparkepisode' || command === 'sp' || command === 'SOUTHPARK') {
+        client.commands.get('spEPTrivia').execute(message, args, Discord, client);
+    }*/
 });
 
 keepUp();
 
-const myDiscordToken = process.env['DISCORD-TOKEN']
+const myDiscordToken = process.env['DISCORD-TOKEN'];
 client.login(myDiscordToken);
 
+/*
+TODO:
+[ ] Lav en South Park Facts function. (Random trivia funktionen kan laves ved at bruge Math.Random og så se om det er over eller under 50%)
+    [ ] Char Trivia
+    [ ] Episode Trivia
+[ ] Lav en South Park Quotes function.
+[ ]
+ */
+
+//client.login("");
